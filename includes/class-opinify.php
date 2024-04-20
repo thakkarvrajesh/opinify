@@ -35,14 +35,14 @@ if ( ! class_exists( 'Opinify' ) ) {
             // 
             add_action('admin_init', array( $this, 'prp_settings_fields' ) );
 
-            // 
+            // Enqueue sctipts for admin area.
             add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-            // 
+            // Saved review data AJAX action.
             add_action( 'wp_ajax_submit_review', array( $this, 'submit_review_ajax' ) );
             add_action( 'wp_ajax_nopriv_submit_review', array( $this, 'submit_review_ajax' ) );
 
-            // 
+            // Review form shortcode function.
             add_shortcode( 'review_form', array( $this, 'review_form_shortcode' ) );
 
             // 
