@@ -35,14 +35,14 @@ if ( ! class_exists( 'Opinify' ) ) {
             // 
             add_action('admin_init', array( $this, 'prp_settings_fields' ) );
 
-            // 
+            // Enqueue sctipts for admin area.
             add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
 
-            // 
+            // Saved review data AJAX action.
             add_action( 'wp_ajax_submit_review', array( $this, 'submit_review_ajax' ) );
             add_action( 'wp_ajax_nopriv_submit_review', array( $this, 'submit_review_ajax' ) );
 
-            // 
+            // Review form shortcode function.
             add_shortcode( 'review_form', array( $this, 'review_form_shortcode' ) );
 
             // 
@@ -489,6 +489,31 @@ if ( ! class_exists( 'Opinify' ) ) {
             ), $atts );
     
             // Add shortcode HTML generation code here
+            return $this->opinify_include_template( 'grid-layout' );
+        }
+
+        /**
+         * To include a template file.
+         *
+         * Example: opinify_include_template( 'abc-grid-template' );
+         *
+         * @param string $template_name The name of the template file to include.
+         */
+        public function opinify_include_template( $template_name ) {
+            // Define path to the template directory.
+            $template_dir = OPINIFY_PATH . 'templates/';
+
+            // Define the file name based on the template name.
+            $file_name = $template_dir . $template_name . '.php';
+
+            // Check if the file exists.
+            if ( file_exists( $file_name ) ) {
+                // Include the template file.
+                include $file_name;
+            } else {
+                // If file doesn't exist, display an error message.
+                echo 'Template file not found.';
+            }
         }
 
     }
