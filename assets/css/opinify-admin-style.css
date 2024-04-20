@@ -1,0 +1,57 @@
+/* Hide the default checkbox */
+.toggle-switch input {
+    display: none;
+}
+/* Style the toggle switch container */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 22px;
+    /* height: 34px; */
+}
+.item__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 15%;
+    margin: 0 0 10px 0;
+}
+/* Style the toggle switch background */
+.toggle-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #CCCCCC;
+    transition: .4s;
+    border-radius: 34px;
+}
+/* Style the slider when checkbox is checked */
+.toggle-switch input:checked + .slider {
+    background-color: #83A7C1;
+}
+/* Style the slider when toggled */
+.toggle-switch input:focus + .slider {
+    box-shadow: 0 0 1px #83A7C1;
+}
+/* Style the toggle switch knob */
+.toggle-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #FFFFFF;
+    transition: .4s;
+    border-radius: 50%;
+}
+/* Style the knob when checkbox is checked */
+.toggle-switch input:checked + .slider:before {
+    transform: translateX(24px);
+}
+  

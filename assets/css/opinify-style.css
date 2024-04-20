@@ -1,0 +1,35 @@
+/* 
+Plugin: Opinify
+Version: 1.0
+Author: Vrajesh Thakkar
+Description: Opinify plugin main stylesheet file.
+*/
+
+.opinify-form-wrapper form .opinify-form-field-group {
+    margin: 0 0 10px 0;
+}
+.opinify-form-wrapper form .opinify-form-field-group .opinify-form-field.text,
+.opinify-form-wrapper form .opinify-form-field-group .opinify-form-field.email,
+.opinify-form-wrapper form .opinify-form-field-group .opinify-form-field.select {
+    display: block;
+    width: 100%;
+}
+
+.opinify-form-field.radio {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Style for the star icon */
+.star {
+    font-size: 24px; /* Adjust size as needed */
+    color: #ddd; /* Default color of the star */
+    cursor: pointer; /* Show pointer cursor on hover */
+}
+
+/* Style for the checked radio buttons */
+.opinify-form-field.radio:checked + label.star {
+    color: #ffc107; /* Color of the checked star */
+}
+
