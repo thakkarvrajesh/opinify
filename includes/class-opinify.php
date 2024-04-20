@@ -489,6 +489,31 @@ if ( ! class_exists( 'Opinify' ) ) {
             ), $atts );
     
             // Add shortcode HTML generation code here
+            return $this->opinify_include_template( 'grid-layout' );
+        }
+
+        /**
+         * To include a template file.
+         *
+         * Example: opinify_include_template( 'abc-grid-template' );
+         *
+         * @param string $template_name The name of the template file to include.
+         */
+        public function opinify_include_template( $template_name ) {
+            // Define path to the template directory.
+            $template_dir = OPINIFY_PATH . 'templates/';
+
+            // Define the file name based on the template name.
+            $file_name = $template_dir . $template_name . '.php';
+
+            // Check if the file exists.
+            if ( file_exists( $file_name ) ) {
+                // Include the template file.
+                include $file_name;
+            } else {
+                // If file doesn't exist, display an error message.
+                echo 'Template file not found.';
+            }
         }
 
     }
